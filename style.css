@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html{
+    font-size: 90%;
+}
+
+
+body{
+    background-color: #e7e7e7;
+}
+
+.card .imgProductos{
+    padding: 25px;
+}
+.img-logo{
+    width: 45px;
+}
+.img-carrito{
+    width: 50px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.div-Buscar{
+    width: 45%;
+}
+
+
+@media screen and (max-width: 768px){ 
+    .navbar .div-Buscar{
+
+    }
+
+    #p-logo{
+        display: none;
+    }
+}
+@media screen and (max-width: 576px){ 
+    #div-productos .col{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .div-Buscar{
+        width: 100%;
+        margin: 10px 5px;
+    }
+    .card{
+        width: 18rem;
+    }
+}
+@media screen and (max-width: 325px){ 
+    html{
+        font-size: 72%;
+    }
+    .card{
+        text-align: center;
+        width: 18rem;
+    }
+}
