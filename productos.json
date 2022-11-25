@@ -1,0 +1,75 @@
+[
+    {
+        "id": 0,
+        "nombre": "Pantalon",
+        "precio": 1500,
+        "img": "img/pantalon.png"
+    },
+    {
+        "id": 1,
+        "nombre": "Remera",
+        "precio": 500,
+        "img": "img/remera.png"
+    },
+    {
+        "id": 2,
+        "nombre": "Zapatillas",
+        "precio": 3000,
+        "img": "img/zapatillas.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Camisa",
+        "precio": 900,
+        "img": "img/camisa.png"
+    },
+    {
+        "id": 4,
+        "nombre": "Buso",
+        "precio": 2300,
+        "img": "img/buso.png"
+    },
+    {
+        "id": 5,
+        "nombre": "Short",
+        "precio": 800,
+        "img": "img/short.png"
+    },
+    {
+        "id": 6,
+        "nombre": "Tacones",
+        "precio": 1600,
+        "img": "img/tacones.png"
+    },
+    {
+        "id": 7,
+        "nombre": "Vestido",
+        "precio": 5000,
+        "img": "img/vestido.png"
+    },
+    {
+        "id": 8,
+        "nombre": "Zapatos",
+        "precio": 1900,
+        "img": "img/zapatos.png"
+    },
+    {
+        "id": 9,
+        "nombre": "Medias",
+        "precio": 400,
+        "img": "img/medias.png"
+    },
+    {
+        "id": 10,
+        "nombre": "Botas",
+        "precio": 5000,
+        "img": "img/botas.png"
+    }, 
+    {
+        "id": 11,
+        "nombre": "Chaleco",
+        "precio": 4200,
+        "img": "img/chaleco.png"
+    }
+
+]

@@ -5,34 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/c5d3e97c41.js" crossorigin="anonymous"></script> <!--Icons-->
+    <script src="https://kit.fontawesome.com/563e341526.js" crossorigin="anonymous"></script>
     <link href="style.css" rel="stylesheet">
     <title>Stock de Ropa</title>
 </head>
 <body>
 
     <!-- Menu -->
-    <nav class="navbar bg-dark navbar-dark">
-        <div class="container-fluid">
+    <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
+        <div class="container-fluid" id="container-menu">
             <!--Logo-->
-            <div class="div-logo">
+            <div class="logo">
                 <a class="navbar-brand" href="index.html">
-                    <img src="img/slogan.png" alt="Logo" class="d-inline-block img-logo"><p class="fw-bold mt-3 d-inline-block">Tienda de Ropa</p>
+                    <img src="img/slogan.png" alt="Logo" class="img-logo">
+                    <i class="fw-bold logo-text">Tienda de Ropa</i>
                 </a>
             </div>
 
             <!--Buscador -->
             <div class="input-group div-Buscar">
-                <span class="input-group-text" id=""><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                 <input class="form-control" type="search" placeholder="Buscar" aria-label="Search" id="Buscar">
                 <button class="btn btn-primary" type="" id="btn-buscar">Buscar</button>
             </div>
 
             <!--Button Carrito-->
-            <div class="div-carrito">
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalCarrito">
-                    <a class="navbar-brand" id="btn-carrito"><img src="img/carrito.png" class="img-carrito"></a>
-                </button>
+            <button type="button" class="btn btn-carrito" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+                <a class="navbar-brand" id="btn-carrito"><img src="img/carrito.png" class="img-carrito"></a>
+            </button>
+
+            <!--Icono toggler-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!--Saldo -->
+                <div class="saldo">
+                    <p class="f-4 saldoText" id="textSaldo">Saldo: $0</p>
+                    <button class="btn-saldo" id="btn-saldo" data-bs-toggle="modal" data-bs-target="#modalSaldo">Agregar Saldo</button>
+                </div>
+                
+                <!--Modo oscuro/claro -->
+                <div class="div-switch">
+                    <button class="switch" id="switch"> 
+                        <span><i class="fa-regular fa-sun"></i></span>
+                        <span><i class="fas fa-moon"></i></span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -50,7 +70,27 @@
                 <div class="modal-footer">
                     <h5 class="me-auto" id="precioTotal">Precio Total: $</h5>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success">Comprar</button>
+                    <button type="button" id="btn-finalizarCompra" class="btn btn-success">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Agregar Saldo -->
+    <div class="modal" tabindex="-1" id="modalSaldo" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Depositar Saldo:</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-carrito-body">
+                    <label for="depositar" class="form-label">Ingrese la Cantidad a depositar</label>
+                    <input type="number" id="depositar" class="form-control mb-3" placeholder="Minimo: $400 || Maximo: $100000">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btn-agregarSaldo" class="btn btn-success">Comprar</button>
                 </div>
             </div>
         </div>
@@ -65,25 +105,51 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">
-                        <label for="nroSerie" class="form-label">Numero de Serie</label>
-                        <input type="text" id="nroSerie" class="form-control mb-3" required>
+                    <label for="id" class="form-label">Numero ID</label>
+                    <input type="number" id="id" class="form-control mb-3" placeholder="Solamente se aceptan Numeros || Ejemplo: 52">
 
-                        <label for="nombre" class="form-label">Nombre del Producto</label>
-                        <input type="text" id="nombre" class="form-control mb-3" required>
+                    <label for="nombre" class="form-label">Nombre del Producto</label>
+                    <input type="text" id="nombre" class="form-control mb-3" placeholder="Ejemplo: Pantalon">
 
-                        <label for="precio" class="form-label">Precio </label>
-                        <input type="text" id="precio" class="form-control mb-3" required>
+                    <label for="precio" class="form-label">Precio </label>
+                    <input type="number" id="precio" class="form-control mb-3" placeholder="Ejemplo: 1200">
                 </div>
                 <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" id="btn-crearProducto">Crear</button>
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="btn-crearProducto">Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Actualizar Producto -->
+    <div class="modal" tabindex="-1" id="modalActualizarProducto" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Actualizar Producto</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <label for="id" class="form-label">Numero ID</label>
+                    <input type="number" id="idActualizar" class="form-control mb-3" >
+
+                    <label for="nombre" class="form-label">Nombre del Producto</label>
+                    <input type="text" id="nombreActualizar" class="form-control mb-3">
+
+                    <label for="precio" class="form-label">Precio </label>
+                    <input type="number" id="precioActualizar" class="form-control mb-3">
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="btn-form-actualizar" data-bs-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Productos -->
-    <div class="container mt-3">
+    <div class="container mt-3 mb-3">
         <div class="row mb-3">
             <div class="col-sm-5 col-12">
                 <!--Button New Product-->
@@ -102,12 +168,19 @@
                 </select>
             </div>
         </div>
+        <h2 id="loaderTexto" class="text-success text-center">Cargando Productos...</h2>
+        <div id="loader" class="d-flex justify-content-center">
+            <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
         <div class="" id="coincidencia"></div>
         <div class="row row-cols-xl-4 row-cols-md-3 row-cols-sm-2 row-cols-1 g-4" id="div-productos"></div>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="darkmode.js"></script>
 <script src="class.js"></script>
 <script src="script.js"></script>
 
