@@ -25,9 +25,9 @@
     },
     {
         "id": 4,
-        "nombre": "Buso",
+        "nombre": "Buzo",
         "precio": 2300,
-        "img": "img/buso.png"
+        "img": "img/buzo.png"
     },
     {
         "id": 5,
